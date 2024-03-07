@@ -1,0 +1,17 @@
+document.getElementById("birthdayForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+    const name = document.getElementById("name").value;
+    const birthdate = document.getElementById("birthdate").value;
+    const today = new Date();
+    const birthday = new Date(birthdate);
+    const age = today.getFullYear() - birthday.getFullYear();
+    
+    let birthdayMessage;
+    if (today.getMonth() === birthday.getMonth() && today.getDate() === birthday.getDate()) {
+        birthdayMessage = `Happy birthday, ${name}! May your day be filled with joy and laughter!`;
+    } else {
+        birthdayMessage = `Happy ${age}th birthday, ${name}! Wishing you a fantastic year ahead!`;
+    }
+    
+    document.getElementById("birthdayMessage").textContent = birthdayMessage;
+});
